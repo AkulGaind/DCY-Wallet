@@ -1,3 +1,4 @@
+import 'package:dcy_wallet/screens/import%20from%20seed/import_from_seed.dart';
 import 'package:dcy_wallet/theme/gradient.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,16 @@ class WalletSetup extends StatelessWidget {
                           'Import Using a Seed Phrase',
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return const ImportFromSeed();
+                            },
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Container(

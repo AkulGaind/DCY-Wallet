@@ -27,14 +27,14 @@ const textTheme = TextTheme(
   ),
   displayMedium: TextStyle(
     fontFamily: 'Archivo',
-    fontWeight: FontWeight.w400,
-    fontSize: 40,
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
     color: Colors.white
   ),
   displaySmall: TextStyle(
     fontFamily: 'Archivo',
-    fontWeight: FontWeight.w400,
-    fontSize: 40,
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
     color: Colors.white
   ),
   labelLarge: TextStyle(
@@ -42,5 +42,17 @@ const textTheme = TextTheme(
     fontWeight: FontWeight.w700,
     fontSize: 18,
     color: Colors.white
-  )
+  ),
+  labelMedium: TextStyle(
+    fontFamily: 'Archivo',
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+    color: Colors.white
+  ),
+  labelSmall: TextStyle(
+    fontFamily: 'Archivo',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: Colors.white
+  ),
 );
