@@ -1,3 +1,4 @@
+import 'package:dcy_wallet/theme/swatch_color.dart';
 import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
@@ -29,7 +30,6 @@ class InputTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin ?? const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      // padding: padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -38,7 +38,7 @@ class InputTextField extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: const Color(0xFF181E25),
+                color: surfaceSwatch[22]!,
               ),
             ),
             child: TextFormField(
@@ -48,7 +48,7 @@ class InputTextField extends StatelessWidget {
               decoration: InputDecoration(
                   labelText: labelText,
                   labelStyle: Theme.of(context).textTheme.labelMedium!.copyWith(
-                        color: const Color(0xFF6A84A0),
+                        color: surfaceSwatch[12],
                       ),
                   border: InputBorder.none,
                   suffixIcon: suffixIcon),
@@ -63,7 +63,7 @@ class InputTextField extends StatelessWidget {
                 helperText!,
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       fontSize: 12,
-                      color: const Color(0xFF6A84A0),
+                      color: surfaceSwatch[12],
                     ),
               ),
             ),
@@ -74,7 +74,7 @@ class InputTextField extends StatelessWidget {
                 errorText!,
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       fontSize: 12,
-                      color: const Color(0xFFEF6B72),
+                      color: errorSwatch[4],
                     ),
               ),
             )

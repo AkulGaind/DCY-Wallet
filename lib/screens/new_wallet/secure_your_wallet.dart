@@ -1,4 +1,5 @@
 import 'package:dcy_wallet/screens/new_wallet/manual_secure.dart';
+import 'package:dcy_wallet/theme/swatch_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/gradient.dart';
@@ -16,7 +17,7 @@ class _SecureWalletState extends State<SecureWallet> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: const Color(0xFF080A0C),
+        backgroundColor: surfaceSwatch[24],
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -48,7 +49,7 @@ class _SecureWalletState extends State<SecureWallet> {
                         "Don't risk losing your funds. protect your wallet by saving your ",
                     style: Theme.of(context).textTheme.labelSmall!.copyWith(
                           height: 1.5,
-                          color: const Color(0xFF8FA2B7),
+                          color: surfaceSwatch[9],
                         ),
                     children: <TextSpan>[
                       TextSpan(
@@ -56,14 +57,14 @@ class _SecureWalletState extends State<SecureWallet> {
                         style:
                             Theme.of(context).textTheme.labelMedium!.copyWith(
                                   height: 1.5,
-                                  color: const Color(0xFF5F97FF),
+                                  color: secondarySwatch[5],
                                 ),
                       ),
                       TextSpan(
                         text: ' in a place you trust.',
                         style: Theme.of(context).textTheme.labelSmall!.copyWith(
                               height: 2,
-                              color: const Color(0xFF8FA2B7),
+                              color: surfaceSwatch[9],
                             ),
                       )
                     ],
@@ -75,7 +76,7 @@ class _SecureWalletState extends State<SecureWallet> {
                 child: Text(
                   "It's the only way to recover your wallet if you get locked out of the app or get a new device.",
                   style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                        color: const Color(0xFF8FA2B7),
+                        color: surfaceSwatch[9],
                         height: 2,
                       ),
                 ),
@@ -100,10 +101,10 @@ class _SecureWalletState extends State<SecureWallet> {
               Container(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: TextButton(
-                  style: const ButtonStyle(
+                  style: ButtonStyle(
                     foregroundColor:
-                        MaterialStatePropertyAll(Color(0xFF5F97FF)),
-                    fixedSize: MaterialStatePropertyAll(Size(500, 56)),
+                        MaterialStatePropertyAll(secondarySwatch[5],),
+                    fixedSize: const MaterialStatePropertyAll(Size(500, 56)),
                   ),
                   child: const Center(
                     child: Text(

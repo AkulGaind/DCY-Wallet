@@ -1,5 +1,6 @@
 import 'package:dcy_wallet/screens/new_wallet/secure_your_wallet.dart';
 import 'package:dcy_wallet/screens/widgets/input_text_field.dart';
+import 'package:dcy_wallet/theme/swatch_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/gradient.dart';
@@ -72,7 +73,7 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: const Color(0xFF080A0C),
+        backgroundColor: surfaceSwatch[24],
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -97,10 +98,9 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                   child: Text(
                     'This password will unlock your Metamask wallet only on this service',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelSmall!
-                        .copyWith(color: const Color(0xFF8FA2B7)),
+                    style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                          color: surfaceSwatch[9],
+                        ),
                   ),
                 ),
                 InputTextField(
@@ -162,12 +162,12 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                       Transform.scale(
                         scale: 1.1,
                         child: Switch(
-                          inactiveThumbColor: const Color(0xFF181E25),
-                          inactiveTrackColor: const Color(0xFF384657),
+                          inactiveThumbColor: surfaceSwatch[22],
+                          inactiveTrackColor: surfaceSwatch[18],
                           activeColor: Colors.white,
                           trackOutlineColor: const MaterialStatePropertyAll(
                               Colors.transparent),
-                          activeTrackColor: const Color(0xFF3D8DFF),
+                          activeTrackColor: primarySwatch[5],
                           value: _togglevalue,
                           onChanged: (onChanged) {
                             setState(
@@ -190,7 +190,7 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                         padding: const EdgeInsets.only(top: 4),
                         child: Checkbox(
                           checkColor: Colors.white,
-                          activeColor: const Color(0xFF3D8DFF),
+                          activeColor: primarySwatch[5],
                           value: _isChecked,
                           onChanged: (bool? value) {
                             setState(() {
@@ -220,11 +220,11 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                                       .textTheme
                                       .labelSmall!
                                       .copyWith(
-                                          height: 1.5,
-                                          color: const Color(0xFF5F97FF),
-                                          decoration: TextDecoration.underline,
-                                          decorationColor:
-                                              const Color(0xFF5F97FF)),
+                                        height: 1.5,
+                                        color: secondarySwatch[5],
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: secondarySwatch[5],
+                                      ),
                                 ),
                               ],
                             ),
@@ -256,17 +256,18 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                   borderRadius: BorderRadius.circular(80),
                 ),
                 child: ElevatedButton(
-                  style: const ButtonStyle(
+                  style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
-                      Color(0xFF101419),
+                      primarySwatch[23],
                     ),
                   ),
                   onPressed: null,
                   child: Text(
                     'Create Password',
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xFF384657)),
+                          fontWeight: FontWeight.w700,
+                          color: primarySwatch[18],
+                        ),
                   ),
                 ),
               ),

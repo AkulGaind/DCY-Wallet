@@ -1,3 +1,4 @@
+import 'package:dcy_wallet/theme/swatch_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/gradient.dart';
@@ -18,7 +19,7 @@ class _ManualScreenState extends State<ManualScreen> {
           color: Colors.white,
         ),
         centerTitle: true,
-        backgroundColor: const Color(0xFF080A0C),
+        backgroundColor: surfaceSwatch[24],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -55,14 +56,14 @@ class _ManualScreenState extends State<ManualScreen> {
                 text: "Secure your wallet's ",
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       height: 1.5,
-                      color: const Color(0xFF8FA2B7),
+                      color: surfaceSwatch[9],
                     ),
                 children: <TextSpan>[
                   TextSpan(
                     text: '"Seed Phrase"',
                     style: Theme.of(context).textTheme.labelMedium!.copyWith(
                           height: 1.5,
-                          color: const Color(0xFF5F97FF),
+                          color: secondarySwatch[5],
                         ),
                   ),
                 ],
@@ -86,7 +87,7 @@ class _ManualScreenState extends State<ManualScreen> {
                   width: 52.2,
                   height: 2,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF76E268),
+                    color: onPrimarySwatch[5],
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -95,7 +96,7 @@ class _ManualScreenState extends State<ManualScreen> {
                   width: 52.2,
                   height: 2,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF76E268),
+                    color: onPrimarySwatch[5],
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -103,7 +104,7 @@ class _ManualScreenState extends State<ManualScreen> {
                   width: 52.2,
                   height: 2,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF76E268),
+                    color: onPrimarySwatch[5],
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),

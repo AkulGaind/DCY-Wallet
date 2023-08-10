@@ -1,5 +1,6 @@
-import 'package:dcy_wallet/screens/slider_screen/widgets/walletthrough.dart';
+import 'package:dcy_wallet/screens/slider_screen/widgets/wallet_through.dart';
 import 'package:dcy_wallet/screens/wallet_setup/wallet_setup.dart';
+import 'package:dcy_wallet/theme/swatch_color.dart';
 import 'package:flutter/material.dart';
 
 class SliderScreen extends StatefulWidget {
@@ -65,8 +66,8 @@ class _SliderScreenState extends State<SliderScreen> {
             right: 24,
           ),
           child: ElevatedButton(
-            style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(Color(0xFF202832)),
+            style: ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(surfaceSwatch[21]),
             ),
             child: const Center(
               child: Text(
@@ -97,8 +98,8 @@ class _SliderScreenState extends State<SliderScreen> {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: index == _activestate
-            ? const Color(0xFF3D8DFF)
-            : const Color(0xFF384657),
+            ? primarySwatch[5]
+            : surfaceSwatch[18],
       ),
     );
   }
