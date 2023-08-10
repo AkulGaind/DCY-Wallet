@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:dcy_wallet/screens/new_wallet/manual_secure.dart';
 import 'package:dcy_wallet/theme/swatch_color.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/gradient.dart';
@@ -12,6 +15,12 @@ class SecureWallet extends StatefulWidget {
 }
 
 class _SecureWalletState extends State<SecureWallet> {
+  List<String> seedPhrase = [
+    "A seed phrase is a set of twelve words that contains all the information about your wallet, including your funds. It's like a secret code used to access your entire wallet.",
+    "You must keep your seed phrase secret and safe. If someone gets your seed phrase, they'll gain control over your accounts. ",
+    "Save it in a place where only you can access it. If you lose it, not even MetaMask can help you recover it. "
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,9 +60,82 @@ class _SecureWalletState extends State<SecureWallet> {
                           height: 1.5,
                           color: surfaceSwatch[9],
                         ),
-                    children: <TextSpan>[
+                    children: [
                       TextSpan(
                         text: 'Seed phrase',
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            showModalBottomSheet<void>(
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              builder: (BuildContext context) {
+                                return BackdropFilter(
+                                  filter:
+                                      ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                                  child: Container(
+                                    height: 400,
+                                    color: surfaceSwatch[24],
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      // mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        Container(
+                                          margin: const EdgeInsets.only(
+                                              left: 16,
+                                              right: 16,
+                                              top: 24,
+                                              bottom: 40),
+                                          child: Text(
+                                            "What is a 'Seed phrase'",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displaySmall,
+                                          ),
+                                        ),
+                                        ...seedPhrase.map(
+                                          (e) {
+                                            return Container(
+                                              margin: const EdgeInsets.only(
+                                                  left: 24,
+                                                  right: 24,
+                                                  bottom: 8),
+                                              child: Text(
+                                                e,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .labelSmall,
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                        Container(
+                                          margin: const EdgeInsets.only(
+                                              bottom: 42,
+                                              left: 24,
+                                              right: 24,
+                                              top: 34),
+                                          width: 500,
+                                          height: 56,
+                                          decoration: BoxDecoration(
+                                            gradient: Gradients.gradient2,
+                                            borderRadius:
+                                                BorderRadius.circular(80),
+                                          ),
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text('I Got It'),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
                         style:
                             Theme.of(context).textTheme.labelMedium!.copyWith(
                                   height: 1.5,
@@ -102,8 +184,9 @@ class _SecureWalletState extends State<SecureWallet> {
                 padding: const EdgeInsets.only(bottom: 16),
                 child: TextButton(
                   style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStatePropertyAll(secondarySwatch[5],),
+                    foregroundColor: MaterialStatePropertyAll(
+                      secondarySwatch[5],
+                    ),
                     fixedSize: const MaterialStatePropertyAll(Size(500, 56)),
                   ),
                   child: const Center(

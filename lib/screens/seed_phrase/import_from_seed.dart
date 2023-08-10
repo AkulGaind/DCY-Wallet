@@ -232,7 +232,7 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
       floatingActionButton: _disableButton
           ? Padding(
               padding: const EdgeInsets.only(
-                // bottom: 42,
+                bottom: 42,
                 top: 8,
                 left: 42,
                 right: 12,
@@ -260,7 +260,7 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
             )
           : Padding(
               padding: const EdgeInsets.only(
-                // bottom: 42,
+                bottom: 42,
                 top: 8,
                 left: 42,
                 right: 12,

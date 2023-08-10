@@ -242,7 +242,7 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
           ),
         ),
       ),
-      floatingActionButton: _disableButton
+      floatingActionButton: _disableButton || !_isChecked
           ? Padding(
               padding: const EdgeInsets.only(
                 bottom: 42,
@@ -258,23 +258,22 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(
-                      primarySwatch[23],
+                      surfaceSwatch[23],
                     ),
                   ),
                   onPressed: null,
                   child: Text(
                     'Create Password',
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: primarySwatch[18],
-                        ),
+                        fontWeight: FontWeight.w700,
+                        color: surfaceSwatch[18],),
                   ),
                 ),
               ),
             )
           : Padding(
               padding: const EdgeInsets.only(
-                // bottom: 42,
+                bottom: 42,
                 top: 8,
                 left: 42,
                 right: 12,
