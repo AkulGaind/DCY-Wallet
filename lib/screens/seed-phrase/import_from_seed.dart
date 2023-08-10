@@ -1,4 +1,4 @@
-import 'package:dcy_wallet/screens/import%20from%20seed/widgets/input_text_field.dart';
+import 'package:dcy_wallet/screens/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/gradient.dart';
@@ -17,34 +17,34 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
-  bool _seedphrase = false;
-  bool _newpassword = false;
-  bool _confirmpassword = false;
-  bool _togglevalue = false;
+  bool _seedPhrase = false;
+  bool _newPassword = false;
+  bool _confirmPassword = false;
+  bool _toggleValue = false;
   bool _disableButton = true;
-  String _newpasswordtext = "Must be at least 8 characters";
+  String _newPasswordText = "Must be at least 8 characters";
 
   newPasswordValidate() {
     if (_newPasswordController.text.isEmpty ||
         _newPasswordController.text.length < 8) {
       setState(() {
-        _newpasswordtext = "Must be at least 8 characters";
+        _newPasswordText = "Must be at least 8 characters";
       });
     } else if (RegExp(r'[A-Z]').hasMatch(_newPasswordController.text) &&
         RegExp(r'\d').hasMatch(_newPasswordController.text) &&
         RegExp(r'[!@#$%^&*(),.?":{}|<>]')
             .hasMatch(_newPasswordController.text)) {
       setState(() {
-        _newpasswordtext = "Password Strength: Strong";
+        _newPasswordText = "Password Strength: Strong";
       });
     } else if (RegExp(r'\d').hasMatch(_newPasswordController.text) &&
         RegExp(r'[A-Z]').hasMatch(_newPasswordController.text)) {
       setState(() {
-        _newpasswordtext = "Password Strength: Medium";
+        _newPasswordText = "Password Strength: Good";
       });
     } else {
       setState(() {
-        _newpasswordtext = "Password Strength: Weak";
+        _newPasswordText = "Password Strength: Weak";
       });
     }
   }
@@ -101,12 +101,12 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                       suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
-                            _seedphrase = !_seedphrase;
+                            _seedPhrase = !_seedPhrase;
                           });
                         },
                         icon: Icon(
                             color: Colors.white,
-                            _seedphrase
+                            _seedPhrase
                                 ? Icons.remove_red_eye_outlined
                                 : Icons.visibility_off_outlined),
                       ),
@@ -127,25 +127,24 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                 validator: newPasswordValidate(),
                 maxLines: 1,
                 labelText: "New Password",
-                obscureText: !_newpassword,
-                helperText: _newpasswordtext,
+                obscureText: !_newPassword,
+                helperText: _newPasswordText,
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {
-                      _newpassword = !_newpassword;
+                      _newPassword = !_newPassword;
                     });
                   },
                   icon: Icon(
                       color: Colors.white,
-                      _newpassword
+                      _newPassword
                           ? Icons.remove_red_eye_outlined
                           : Icons.visibility_off_outlined),
                 ),
               ),
               InputTextField(
                 controller: _confirmPasswordController,
-                // validator: confirmPasswordValidate(),
-                obscureText: !_confirmpassword,
+                obscureText: !_confirmPassword,
                 labelText: "Confirm Password",
                 errorText: (_newPasswordController.text.isNotEmpty &&
                         _confirmPasswordController.text.isNotEmpty &&
@@ -157,12 +156,12 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                 suffixIcon: IconButton(
                   onPressed: () {
                     setState(() {
-                      _confirmpassword = !_confirmpassword;
+                      _confirmPassword = !_confirmPassword;
                     });
                   },
                   icon: Icon(
                       color: Colors.white,
-                      _confirmpassword
+                      _confirmPassword
                           ? Icons.remove_red_eye_outlined
                           : Icons.visibility_off_outlined),
                 ),
@@ -178,7 +177,7 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                       style: Theme.of(context).textTheme.displaySmall,
                     ),
                     Transform.scale(
-                      scale: 1.2,
+                      scale: 1.1,
                       child: Switch(
                         inactiveThumbColor: const Color(0xFF181E25),
                         inactiveTrackColor: const Color(0xFF384657),
@@ -186,11 +185,11 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                         trackOutlineColor:
                             const MaterialStatePropertyAll(Colors.transparent),
                         activeTrackColor: const Color(0xFF3D8DFF),
-                        value: _togglevalue,
+                        value: _toggleValue,
                         onChanged: (onChanged) {
                           setState(
                             () {
-                              _togglevalue = onChanged;
+                              _toggleValue = onChanged;
                             },
                           );
                         },
@@ -200,29 +199,27 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                 ),
               ),
               Container(
-                  margin: const EdgeInsets.only(left: 32, right: 24, top: 12),
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'By proceeding, you agree to these ',
-                      style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                            height: 1.5,
-                            color: const Color(0xFF8FA2B7),
-                          ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'Terms and Conditions.',
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelSmall!
-                              .copyWith(
-                                  height: 1.5,
-                                  color: const Color(0xFF5F97FF),
-                                  decoration: TextDecoration.underline,
-                                  decorationColor: const Color(0xFF5F97FF)),
+                margin: const EdgeInsets.only(left: 32, right: 24, top: 12),
+                child: RichText(
+                  text: TextSpan(
+                    text: 'By proceeding, you agree to these ',
+                    style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                          height: 1.5,
+                          color: const Color(0xFF8FA2B7),
                         ),
-                      ],
-                    ),
-                  )),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Terms and Conditions.',
+                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                            height: 1.5,
+                            color: const Color(0xFF5F97FF),
+                            decoration: TextDecoration.underline,
+                            decorationColor: const Color(0xFF5F97FF)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 250,
               ),
@@ -249,7 +246,7 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                       Color(0xFF101419),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: null,
                   child: Text(
                     'Import',
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(

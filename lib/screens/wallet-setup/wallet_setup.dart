@@ -1,4 +1,5 @@
-import 'package:dcy_wallet/screens/import%20from%20seed/import_from_seed.dart';
+import 'package:dcy_wallet/screens/new-wallet/create_a_new_wallet.dart';
+import 'package:dcy_wallet/screens/seed-phrase/import_from_seed.dart';
 import 'package:dcy_wallet/theme/gradient.dart';
 import 'package:flutter/material.dart';
 
@@ -73,7 +74,16 @@ class WalletSetup extends StatelessWidget {
                       borderRadius: BorderRadius.circular(80),
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return const CreateNewWallet();
+                            },
+                          ),
+                        );
+                      },
                       child: const Text('Create a New Wallet'),
                     ),
                   ),
