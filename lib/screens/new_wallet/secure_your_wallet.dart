@@ -1,4 +1,4 @@
-import 'package:dcy_wallet/screens/new-wallet/manual_secure.dart';
+import 'package:dcy_wallet/screens/new_wallet/manual_secure.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/gradient.dart';

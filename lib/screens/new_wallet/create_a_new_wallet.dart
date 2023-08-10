@@ -1,4 +1,4 @@
-import 'package:dcy_wallet/screens/new-wallet/secure_your_wallet.dart';
+import 'package:dcy_wallet/screens/new_wallet/secure_your_wallet.dart';
 import 'package:dcy_wallet/screens/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 

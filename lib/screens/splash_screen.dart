@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:dcy_wallet/screens/slider-screen/slider_screen.dart';
+import 'package:dcy_wallet/screens/slider_screen/slider_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../theme/gradient.dart';

@@ -1,5 +1,5 @@
-import 'package:dcy_wallet/screens/slider-screen/widgets/walletthrough.dart';
-import 'package:dcy_wallet/screens/wallet-setup/wallet_setup.dart';
+import 'package:dcy_wallet/screens/slider_screen/widgets/walletthrough.dart';
+import 'package:dcy_wallet/screens/wallet_setup/wallet_setup.dart';
 import 'package:flutter/material.dart';
 
 class SliderScreen extends StatefulWidget {

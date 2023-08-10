@@ -1,5 +1,5 @@
-import 'package:dcy_wallet/screens/new-wallet/create_a_new_wallet.dart';
-import 'package:dcy_wallet/screens/seed-phrase/import_from_seed.dart';
+import 'package:dcy_wallet/screens/new_wallet/create_a_new_wallet.dart';
+import 'package:dcy_wallet/screens/seed_phrase/import_from_seed.dart';
 import 'package:dcy_wallet/theme/gradient.dart';
 import 'package:flutter/material.dart';
 
