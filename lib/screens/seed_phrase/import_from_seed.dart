@@ -1,4 +1,6 @@
 import 'package:dcy_wallet/screens/widgets/input_text_field.dart';
+import 'package:dcy_wallet/screens/widgets/authentication.dart';
+import 'package:dcy_wallet/screens/widgets/qr_scanner.dart';
 import 'package:dcy_wallet/theme/swatch_color.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +23,6 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
   bool _seedPhrase = false;
   bool _newPassword = false;
   bool _confirmPassword = false;
-  bool _toggleValue = false;
   bool _disableButton = true;
   String _newPasswordText = "Must be at least 8 characters";
 
@@ -167,38 +168,39 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                           : Icons.visibility_off_outlined),
                 ),
               ),
-              Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Sign in with Face ID?',
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                    Transform.scale(
-                      scale: 1.1,
-                      child: Switch(
-                        inactiveThumbColor: surfaceSwatch[22],
-                        inactiveTrackColor: surfaceSwatch[18],
-                        activeColor: Colors.white,
-                        trackOutlineColor:
-                            const MaterialStatePropertyAll(Colors.transparent),
-                        activeTrackColor: primarySwatch[5],
-                        value: _toggleValue,
-                        onChanged: (onChanged) {
-                          setState(
-                            () {
-                              _toggleValue = onChanged;
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   margin:
+              //       const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       Text(
+              //         'Sign in with Face ID?',
+              //         style: Theme.of(context).textTheme.displaySmall,
+              //       ),
+              //       Transform.scale(
+              //         scale: 1.1,
+              //         child: Switch(
+              //           inactiveThumbColor: surfaceSwatch[22],
+              //           inactiveTrackColor: surfaceSwatch[18],
+              //           activeColor: Colors.white,
+              //           trackOutlineColor:
+              //               const MaterialStatePropertyAll(Colors.transparent),
+              //           activeTrackColor: primarySwatch[5],
+              //           value: _toggleValue,
+              //           onChanged: (onChanged) {
+              //             setState(
+              //               () {
+              //                 _toggleValue = onChanged;
+              //               },
+              //             );
+              //           },
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              const Authentication(),
               Container(
                 margin: const EdgeInsets.only(left: 32, right: 24, top: 12),
                 child: RichText(
@@ -252,8 +254,9 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
                   child: Text(
                     'Import',
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: surfaceSwatch[18],),
+                          fontWeight: FontWeight.w700,
+                          color: surfaceSwatch[18],
+                        ),
                   ),
                 ),
               ),

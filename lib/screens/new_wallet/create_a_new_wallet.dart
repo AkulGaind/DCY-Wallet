@@ -1,5 +1,6 @@
 import 'package:dcy_wallet/screens/new_wallet/secure_your_wallet.dart';
 import 'package:dcy_wallet/screens/widgets/input_text_field.dart';
+import 'package:dcy_wallet/screens/widgets/authentication.dart';
 import 'package:dcy_wallet/theme/swatch_color.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,6 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
-  bool _togglevalue = false;
   bool _disableButton = true;
   bool _newpassword = false;
   bool _confirmpassword = false;
@@ -149,37 +149,41 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                             : Icons.visibility_off_outlined),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(
-                      left: 32, right: 32, top: 28, bottom: 24),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Sign in with Face ID?',
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
-                      Transform.scale(
-                        scale: 1.1,
-                        child: Switch(
-                          inactiveThumbColor: surfaceSwatch[22],
-                          inactiveTrackColor: surfaceSwatch[18],
-                          activeColor: Colors.white,
-                          trackOutlineColor: const MaterialStatePropertyAll(
-                              Colors.transparent),
-                          activeTrackColor: primarySwatch[5],
-                          value: _togglevalue,
-                          onChanged: (onChanged) {
-                            setState(
-                              () {
-                                _togglevalue = onChanged;
-                              },
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
+                // Container(
+                //   margin: const EdgeInsets.only(
+                //       left: 32, right: 32, top: 28, bottom: 24),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       Text(
+                //         'Sign in with Face ID?',
+                //         style: Theme.of(context).textTheme.displaySmall,
+                //       ),
+                //       Transform.scale(
+                //         scale: 1.1,
+                //         child: Switch(
+                //           inactiveThumbColor: surfaceSwatch[22],
+                //           inactiveTrackColor: surfaceSwatch[18],
+                //           activeColor: Colors.white,
+                //           trackOutlineColor: const MaterialStatePropertyAll(
+                //               Colors.transparent),
+                //           activeTrackColor: primarySwatch[5],
+                //           value: _togglevalue,
+                //           onChanged: (onChanged) {
+                //             setState(
+                //               () {
+                //                 _togglevalue = onChanged;
+                //               },
+                //             );
+                //           },
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                const Authentication(
+                  margin:
+                      EdgeInsets.only(left: 32, right: 32, top: 28, bottom: 24),
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 12),
@@ -265,8 +269,9 @@ class _CreateNewWalletState extends State<CreateNewWallet> {
                   child: Text(
                     'Create Password',
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: surfaceSwatch[18],),
+                          fontWeight: FontWeight.w700,
+                          color: surfaceSwatch[18],
+                        ),
                   ),
                 ),
               ),

@@ -20,6 +20,7 @@ class _SecureWalletState extends State<SecureWallet> {
     "You must keep your seed phrase secret and safe. If someone gets your seed phrase, they'll gain control over your accounts. ",
     "Save it in a place where only you can access it. If you lose it, not even MetaMask can help you recover it. "
   ];
+  bool _isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -115,8 +116,8 @@ class _SecureWalletState extends State<SecureWallet> {
                                               left: 24,
                                               right: 24,
                                               top: 34),
-                                          width: 500,
-                                          height: 56,
+                                          width: 375,
+                                          height: 52,
                                           decoration: BoxDecoration(
                                             gradient: Gradients.gradient2,
                                             borderRadius:
@@ -194,7 +195,181 @@ class _SecureWalletState extends State<SecureWallet> {
                       'Import Using a Seed Phrase',
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet<void>(
+                        context: context,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) {
+                          return StatefulBuilder(
+                            // this is new
+                            builder:
+                                (BuildContext context, StateSetter setState) {
+                              return BackdropFilter(
+                                filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                                child: Container(
+                                  height: 300,
+                                  color: surfaceSwatch[24],
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        margin: const EdgeInsets.only(
+                                            left: 16,
+                                            right: 16,
+                                            top: 24,
+                                            bottom: 40),
+                                        child: Text(
+                                          "Skip Account Security?",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displaySmall,
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 12),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.only(top: 4),
+                                              child: Checkbox(
+                                                checkColor: Colors.white,
+                                                activeColor: primarySwatch[5],
+                                                value: _isChecked,
+                                                onChanged: (bool? value) {
+                                                  setState(() {
+                                                    _isChecked = value!;
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 8, right: 8),
+                                                  child: Text(
+                                                    'I understand that if I lose my seed phrase I will not be able to access my wallet',
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .labelSmall,
+                                                  )),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: const EdgeInsets.only(top: 32),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 16),
+                                              child: TextButton(
+                                                style: ButtonStyle(
+                                                  foregroundColor:
+                                                      MaterialStatePropertyAll(
+                                                    secondarySwatch[5],
+                                                  ),
+                                                  fixedSize:
+                                                      const MaterialStatePropertyAll(
+                                                          Size(156, 56)),
+                                                ),
+                                                child: const Center(
+                                                  child: Text(
+                                                    'Secure',
+                                                  ),
+                                                ),
+                                                onPressed: () {},
+                                              ),
+                                            ),
+                                            _isChecked
+                                                ? Container(
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            bottom: 42,
+                                                            left: 24,
+                                                            right: 24,
+                                                            top: 34),
+                                                    width: 156,
+                                                    height: 56,
+                                                    decoration: BoxDecoration(
+                                                      gradient:
+                                                          Gradients.gradient2,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              80),
+                                                    ),
+                                                    child: ElevatedButton(
+                                                      onPressed: () {
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder:
+                                                                (BuildContext
+                                                                    context) {
+                                                              return const ManualScreen();
+                                                            },
+                                                          ),
+                                                        );
+                                                      },
+                                                      child: const Text('Skip'),
+                                                    ),
+                                                  )
+                                                : Container(
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            bottom: 42,
+                                                            left: 24,
+                                                            right: 24,
+                                                            top: 34),
+                                                    width: 156,
+                                                    height: 56,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              80),
+                                                    ),
+                                                    child: ElevatedButton(
+                                                      style: ButtonStyle(
+                                                        backgroundColor:
+                                                            MaterialStatePropertyAll(
+                                                          surfaceSwatch[23],
+                                                        ),
+                                                      ),
+                                                      onPressed: null,
+                                                      child: Text(
+                                                        'Skip',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .displaySmall!
+                                                            .copyWith(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color:
+                                                                  surfaceSwatch[
+                                                                      18],
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        });
+                  },
                 ),
               ),
               Container(
