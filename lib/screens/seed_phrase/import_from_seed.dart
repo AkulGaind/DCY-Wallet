@@ -42,7 +42,7 @@ class _ImportFromSeedState extends State<ImportFromSeed> {
     } else if (RegExp(r'\d').hasMatch(_newPasswordController.text) &&
         RegExp(r'[A-Z]').hasMatch(_newPasswordController.text)) {
       setState(() {
-        _newPasswordText = "Password Strength: Good";
+        _newPasswordText = "Password Strength: Medium";
       });
     } else {
       setState(() {
